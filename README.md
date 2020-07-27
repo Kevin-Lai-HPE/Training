@@ -44,3 +44,9 @@ Docker的可移植性和輕量級的特性還使您可以輕鬆地動態管理�
 ### 在同一硬件上運行更多工作負載
 
 Docker輕巧快速。它為基於虛擬機管理程序的虛擬機提供了可行且經濟高效的替代方案，因此您可以利用更多的計算能力來實現業務目標。Docker非常適合高密度環境以及中小型部署，而您需要用更少的資源做更多的事情。
+
+## Docker架構
+
+Docker使用客戶端-服務器架構。Docker 客戶端與Docker 守護進程進行對話，該守護進程完成了構建，運行和分發Docker容器的繁重工作。Docker客戶端和守護程序可以 在同一系統上運行，也可以將Docker客戶端連接到遠程Docker守護程序。Docker客戶端和守護程序在UNIX套接字或網絡接口上使用REST API進行通信。
+
+![Docker架構圖](https://docs.docker.com/engine/images/architecture.svg)
