@@ -65,12 +65,12 @@ Docker 註冊表存儲Docker映像。Docker Hub是任何人都可以使用的公
 ## Docker objects
 使用Docker時，您正在創建和使用images，containers，network，volumes，插件和其他對象。本節是其中一些對象的簡要概述。
 
-## IMAGES
+### IMAGES
 一個image是用於創建一個Docker container指令的只讀模板。通常，一個映像基於另一個映像，並進行一些其他自定義。例如，您可以構建基於該ubuntu 映像的映像，但安裝Apache Web服務器和您的應用程序，以及運行該應用程序所需的配置詳細信息。
 
 您可以創建自己的images，也可以僅使用其他人創建並在註冊表中發布的image。要構建自己的映像，您可以使用簡單的語法創建一個Dockerfile，以定義創建映像並運行它所需的步驟。Dockerfile中的每條指令都會在映像中創建一個層。當您更改Dockerfile並重建映像時，僅重建那些已更改的層。與其他虛擬化技術相比，這是使映像如此輕巧，小型和快速的部分原因。
 
-## CONTAINERS
+### CONTAINERS
 Container是image的可運行實例。您可以使用Docker API或CLI創建，啟動，停止，移動或刪除container。您可以將container連接到一個或多個網絡，將存儲連接到它，甚至根據其當前狀態創建一個新映像。
 
 默認情況下，container與其他container及其主機之間的隔離度相對較高。您可以控制container的網絡，存儲或其他基礎子系統與其他container或與主機的隔離程度。
@@ -78,46 +78,46 @@ Container是image的可運行實例。您可以使用Docker API或CLI創建，�
 container由其映像以及在創建或啟動時為其提供的任何配置選項定義。刪除container後，未存儲在永久性存儲中的狀態更改將消失。
 
 示例```docker ru```命令
-以下命令運行一個ubuntu容器，以交互方式附加到本地命令行會話，然後運行```/bin/bash```。
+以下命令運行一個ubuntu container，以交互方式附加到本地命令行會話，然後運行```/bin/bash```。
 
 ```$ docker run -i -t ubuntu /bin/bash```
 當您運行此命令時，會發生以下情況（假設您使用的是默認註冊表配置）：
 
 1. 如果您在```ubuntu```本地沒有該映像，則Docker會將其從已配置的註冊表中拉出，就像您已```docker pull ubuntu```手動運行一樣。
 
-2. Docker會創建一個新容器，就像您已```docker container create```手動運行命令一樣。
+2. Docker會創建一個新的container，就像您已```docker container create```手動運行命令一樣。
 
-3. Docker將一個讀寫文件系統分配給容器，作為其最後一層。這允許運行中的容器在其本地文件系統中創建或修改文件和目錄。
+3. Docker將一個讀寫文件系統分配給container，作為其最後一層。這允許運行中的container在其本地文件系統中創建或修改文件和目錄。
 
-4. Docker創建了一個網絡接口，將容器連接到默認網絡，因為您沒有指定任何網絡選項。這包括為容器分配IP地址。默認情況下，容器可以使用主機的網絡連接連接到外部網絡。
+4. Docker創建了一個網絡接口，將container連接到默認網絡，因為您沒有指定任何網絡選項。這包括為container分配IP地址。默認情況下，container可以使用主機的網絡連接連接到外部網絡。
 
-5. Docker啟動容器並執行```/bin/bash```。由於容器是交互式運行的，並且已附加到您的終端（由於```-i```和```-t``` 標誌），因此您可以在輸出記錄到終端時使用鍵盤提供輸入。
+5. Docker啟動container並執行```/bin/bash```。由於container是交互式運行的，並且已附加到您的終端（由於```-i```和```-t``` 標誌），因此您可以在輸出記錄到終端時使用鍵盤提供輸入。
 
-6. 當您鍵入```exit```以終止```/bin/bash```命令時，容器將停止但不會被刪除。您可以重新啟動或刪除它。
+6. 當您鍵入```exit```以終止```/bin/bash```命令時，container將停止但不會被刪除。您可以重新啟動或刪除它。
 
-## 服務
-服務允許你擴展在多個碼頭工人守護進程的容器，這是所有工作一起作為一個群有多個管理人員和工人。群集的每個成員都是Docker守護程序，所有守護程序都使用Docker API進行通信。服務允許您定義所需的狀態，例如在任何給定時間必須可用的服務副本的數量。默認情況下，該服務在所有工作節點之間是負載平衡的。對於消費者而言，Docker服務似乎是一個單獨的應用程序。Docker Engine在Docker 1.12及更高版本中支持集群模式。
+### SERVICES
+服務允許你擴展在多個Docker daemons的containers，這是所有工作一起作為一個群有多個*mangers*和*workers*。群集的每個成員都是Docker daemon，所有daemon都使用Docker API進行通信。服務允許您定義所需的狀態，例如在任何給定時間必須可用的服務副本的數量。默認情況下，該服務在所有工作節點之間是負載平衡的。對於消費者而言，Docker服務似乎是一個單獨的應用程序。Docker Engine在Docker 1.12及更高版本中支持集群模式。
 
 ## 底層技術
 Docker用**Go**編寫，並利用Linux內核的多個功能來交付其功能。
 
-## 命名空間
-Docker使用一種稱為```namespaces```提供容器的隔離工作區的技術。運行容器時，Docker會為該容器創建一組 名稱空間。
-這些名稱空間提供了一層隔離。容器的每個方面都在單獨的名稱空間中運行，並且其訪問僅限於該名稱空間。
+## Namespace
+Docker使用一種稱為```namespaces```提供container的隔離工作區的技術。運行container時，Docker會為該container創建一組名稱空間。
+這些名稱空間提供了一層隔離。container的每個方面都在單獨的名稱空間中運行，並且其訪問僅限於該名稱空間。
 
 Docker Engine在Linux上使用以下名稱空間：
 
-* **的```pid```命名空間**：進程隔離（PID：進程ID）。
-* **該```net```命名空間**：管理網絡接口（NET：網絡）。
-* **該```ipc```命名空間**：管理訪問IPC資源（IPC：進程間通信）。
-* **該```mnt```命名空間**：管理文件系統掛載點（MNT：摩）。
-* **該```uts```命名空間**：隔離內核和版本標識符。（UTS：Unix時間共享系統）。
+* **The```pid```namespace**：進程隔離（PID：進程ID）。
+* **The```net```namespace**：管理網絡接口（NET：網絡）。
+* **The```ipc```namespace**：管理訪問IPC資源（IPC：進程間通信）。
+* **The```mnt```namespace**：管理文件系統掛載點（MNT：摩）。
+* **The```uts```namespace**：隔離內核和版本標識符。（UTS：Unix時間共享系統）。
 
 ## 對照組
-Linux上的Docker Engine還依賴於另一種稱為控制組 （```cgroups```）的技術。cgroup將應用程序限制為一組特定的資源。控制組允許Docker Engine將可用的硬件資源共享給容器，並有選擇地實施限制和約束。例如，您可以限制特定容器可用的內存。
+Linux上的Docker Engine還依賴於另一種稱為控制組 （```cgroups```）的技術。cgroup將應用程序限制為一組特定的資源。控制組允許Docker Engine將可用的硬件資源共享給container，並有選擇地實施限制和約束。例如，您可以限制特定container可用的內存。
 
 ## 聯合文件系統
-聯合文件系統或UnionFS是通過創建圖層進行操作的文件系統，使其非常輕便且快速。Docker Engine使用UnionFS為容器提供構建模塊。Docker Engine可以使用多個UnionFS變體，包括AUFS，btrfs，vfs和DeviceMapper。
+聯合文件系統或UnionFS是通過創建圖層進行操作的文件系統，使其非常輕便且快速。Docker Engine使用UnionFS為container提供構建模塊。Docker Engine可以使用多個UnionFS變體，包括AUFS，btrfs，vfs和DeviceMapper。
 
-## 容器格式
-Docker Engine將名稱空間，控制組和UnionFS組合到一個稱為容器格式的包裝器中。默認容器格式為```libcontainer```。將來，Docker可能會通過與BSD Jails或Solaris Zones等技術集成來支持其他容器格式。
+## Container 格式
+Docker Engine將名稱空間，控制組和UnionFS組合到一個稱為container格式的包裝器中。默認container格式為```libcontainer```。將來，Docker可能會通過與BSD Jails或Solaris Zones等技術集成來支持其他container格式。
