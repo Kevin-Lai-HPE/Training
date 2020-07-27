@@ -18,4 +18,6 @@ Docker Engine是具有以下主要組件的客戶端-服務器應用程序：
 * 服務器是一種長期運行的程序，稱為守護程序進程（ dockerd命令）。
 * REST API，它指定程序可以用來與守護程序進行通信並指示其操作的接口。
 * 命令行界面（CLI）客戶端（docker命令）。
-Docker引擎組件流程: ![Docker引擎組件流程](https://docs.docker.com/engine/images/engine-components-flow.png)
+
+![Docker引擎組件流程](https://docs.docker.com/engine/images/engine-components-flow.png)
+
