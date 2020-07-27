@@ -62,11 +62,10 @@ Docker registries儲存Docker images。Docker Hub是任何人都可以使用的p
 使用```docker pull```或```docker run```命令時，所需的images將從配置的registry中提取。使用該```docker push```命令時，會將images push到配置的registry。
 
 ## Docker objects
-使用Docker時，創建和使用images，containers，network，volumes，插件和其他objects。
+使用Docker時，創建和操作的基本物件:images，containers，network，volumes，插件和其他objects。
 
 ### IMAGES
 image是一個用於創建一個Docker container指令的read-only模板。通常一個image是基於另一個image進行了一些其他自定義。例如，可以構建基於該ubuntu image的image，但需要安裝Apache Web服務器和應用程式，以及運行該應用程式所需的其他配置資訊。
-
 可以創建自己的images，也可以使用其他人創建並在registry中發布的image。要構建自己的image，可以創建一個Dockerfile，以定義創建image、運行image所需的步驟。Dockerfile中的每條指令都會在映像中創建一個layer。當更改Dockerfile並重建image時，只有更改的那須layer會重建。
 
 ### CONTAINERS
