@@ -25,9 +25,9 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 ```
 
-### build Dockerfile
+## build Dockerfile
 ![docker build Dockerfile](https://github.com/Kevin-Lai-HPE/Training/blob/master/images/docker%20build%20dockerfile%200729.PNG)
-### docker run image
+## docker run image
 ![docker images](https://github.com/Kevin-Lai-HPE/Training/blob/master/images/docker%20images%200729.PNG)
-### docker run image & connect
+## docker run image & connect
 ![connect](https://github.com/Kevin-Lai-HPE/Training/blob/master/images/docker%20run%20sshdf7.PNG)
