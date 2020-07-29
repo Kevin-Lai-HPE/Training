@@ -7,18 +7,19 @@
 
 ## Dockerfile
 
-```FROM centos:7```
+```
+FROM centos:7
 
-```RUN yum update -y```
+RUN yum update -y
 
-```RUN yum install -y httpd```
+RUN yum install -y httpd
 
-```RUN yum install -y net-tools```
+RUN yum install -y net-tools
 
-```RUN yum install -y vim```
+RUN yum install -y vim
 
-```RUN yum install -y telnet```
-
+RUN yum install -y telnet
+```
 
 ### build Dockerfile
 ![docker build Dockerfile](https://github.com/Kevin-Lai-HPE/Training/blob/master/images/docker%20build%20dockerfile.PNG?raw=true)
