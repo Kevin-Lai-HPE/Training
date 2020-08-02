@@ -31,7 +31,7 @@ ENV PATH $PATH:$JAVA_HOME/bin:CATALINA_HOME/bin
 
 VOLUME ["/training/java/apache-tomcat-9.0.37/webapps"]
 
-EXPOSE 8080
+EXPOSE 8080 80
 
 CMD ["/training/java/apache-tomcat-9.0.37/bin/catalina.sh", "run"]
 ```
@@ -44,9 +44,9 @@ CMD ["/training/java/apache-tomcat-9.0.37/bin/catalina.sh", "run"]
 ## docker images
 ![docker images](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20images%20test.PNG)
 ## docker run
-![docker run -d --name tomcat -p 8080:8080 test](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20run%20-d%20-p%208080%208080%20test.PNG)
+![docker run -d --name tomcat -p 80:80 -p 8080:8080 test](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20run%20-d%20-p%208080%208080%20test.PNG)
 
-```docker run -d --name tomcat -p 8080:8080 test```
+```docker run -d --name tomcat -P test```
 ## curl loaclhost:8080
 ![curl loaclhost:8080](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/curl%20localhost8080.PNG)
 ## find the directory of VOLUME
