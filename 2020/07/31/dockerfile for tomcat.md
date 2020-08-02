@@ -39,12 +39,16 @@ CMD ["/training/java/apache-tomcat-9.0.37/bin/catalina.sh", "run"]
 
 ```docker build -t test .```
 
+![docker build1](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20build%20-t%20test%201.PNG)
+![docker build](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20build%20-t%20test%202.PNG)
 ## docker images
-
+![docker images](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20images%20test.PNG)
 ## docker run
+![docker run -d --name tomcat -p 8080:8080 test](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20run%20-d%20-p%208080%208080%20test.PNG)
 
 ```docker run -d --name tomcat -p 8080:8080 test```
-
+## curl loaclhost:8080
+![curl loaclhost:8080](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/curl%20localhost8080.PNG)
 ## find the directory of VOLUME
 
 ```docker inspect -f '{{.Mounts}}' tomcat```
