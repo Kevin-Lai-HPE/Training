@@ -7,7 +7,9 @@ https://javadl.oracle.com/webapps/download/GetFile/1.8.0_[xxx]-b[xx]/[encrypted_
 ## wget download apache tomcat
 ```wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.37/bin/apache-tomcat-9.0.37.tar.gz```
 
+## tar .gz
 ```tar -xzvf jdk-8u261-linux-x64.tar.gz jdk1.8.0_261/```
+
 ```tar -xzvf apache-tomcat-9.0.37.tar.gz apache-tomcat-9.0.37/```
 
 ## vim Dockerfile
@@ -47,8 +49,10 @@ CMD ["/training/java/apache-tomcat-9.0.37/bin/catalina.sh", "run"]
 ![docker run -d --name tomcat -p 80:80 -p 8080:8080 test](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/docker%20run%20-d%20-p%208080%208080%20test.PNG)
 
 ```docker run -d --name tomcat -p 80:80 -p 8080:8080 test```
-## curl loaclhost:8080
-![curl loaclhost:8080](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/curl%20localhost8080.PNG)
+## curl httpd 
+![curl httpd](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/curl%20httpd.PNG)
+## curl tomcat
+![curl tomcat](https://github.com/Kevin-Lai-HPE/Training/blob/master/2020/07/31/curl%20tomcat.PNG)
 ## find the directory of VOLUME
 
 ```docker inspect -f '{{.Mounts}}' tomcat```
