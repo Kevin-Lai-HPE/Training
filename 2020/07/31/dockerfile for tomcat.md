@@ -35,20 +35,20 @@ EXPOSE 8080
 
 CMD ["/training/java/apache-tomcat-9.0.37/bin/catalina.sh", "run"]
 ```
-##docker build
+## docker build
 
 ```docker build -t test .```
 
-##docker images
+## docker images
 
-##docker run
+## docker run
 
 ```docker run -d --name tomcat -p 8080:8080 test```
 
-##find the directory of VOLUME
+## find the directory of VOLUME
 
 ```docker inspect -f '{{.Mounts}}' tomcat```
 
-###wget the sample file in {$VOLUME}
+### wget the sample file in {$VOLUME}
 
 ```wget  https://tomcat.apache.org/tomcat-9.0-doc/appdev/sample/sample(1,2).war```
